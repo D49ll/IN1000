@@ -19,3 +19,5 @@ elif mnd1 < mnd2:
     print("Riktig rekkefølge!")
 else: 
     print("Feil rekkefølge!")
+
+print("test")
