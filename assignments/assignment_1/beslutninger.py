@@ -1,5 +1,5 @@
 # Oppgave 2.1
-svar = input("Kunne du tenke deg en brus?\n") #Stiller spørsmål i terminal og mottar input
+svar = input("Kunne du tenke deg en brus?\n") #brukerinput
 
 # Oppgave 2.2
 if svar == "ja": #dersom bruker svarte ja
