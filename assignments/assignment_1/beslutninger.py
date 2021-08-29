@@ -1,5 +1,7 @@
 # Oppgave 2.1
-svar = input("Kunne du tenke deg en brus?\n") #brukerinput
+svar = input("Kunne du tenke deg en brus?\n").lower() #brukerinput
+
+svar = svar.lower() #Konverterer string til små bokstaver
 
 # Oppgave 2.2
 if svar == "ja": #dersom bruker svarte ja
