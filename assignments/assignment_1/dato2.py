@@ -35,7 +35,7 @@ def str_to_int(input_date):
     digit_format = 2 #Antall heltall i hvert element av listen
 
     for i in range(0,len(input_date),digit_format):
-            split_date.append(int(input_date[i:i+digit_format]))
+            split_date.append(int(input_date[i:i+digit_format])) 
     return split_date
 
 
