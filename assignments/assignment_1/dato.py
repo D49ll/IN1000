@@ -1,6 +1,10 @@
 # Oppgave 3.1
+'''
+Dette programmet tar ikke hensyn til gyldige datoer. 
+Dvs bruker kan skrive inn 30 februar uten at programmet vet det er feil.
+'''
 
-# Datoer
+# Brukerinput
 print("\nFørste dato:")
 dag1 = input("Dag (heltall): ")
 mnd1 = input("Måned (heltall): ")
