@@ -89,15 +89,21 @@ def date_order(input_date1, input_date2):
     date1 = str_to_int(input_date1)
     date2 = str_to_int(input_date2)
 
-    if date1[1] == date2[1]: 
+    #Sjekker først om måneder er like
+    if date1[1] == date2[1]:
+        #Sjekker om dager er like
         if date1[0] == date2[0]: 
             print("\nSamme dato!")
+        #Sjekker om dag1 kommer før dag2
         elif date1[0] < date2[0]: 
             print("\nRiktig rekkefølge!")
+        #Alle andre tilfeller
         else:
             print("\nFeil rekkefølge!")
-    elif date1[0] < date2[0]:
+    # Dersom måned i date1 kommer før måned i date2        
+    elif date1[1] < date2[1]:
         print("\nRiktig rekkefølge!")
+    # Alle andre tilfeller    
     else: 
         print("\nFeil rekkefølge!")
 
