@@ -15,8 +15,9 @@ Prøven består av 5 spørsmål. For å bestå må man ha ingen feil.
 '''
 
 #Variabler
-faults = 0
+faults = 0 #Variabel for å registrere antall feil
 
+#Quiz spørsmål
 questions = [
     "Hva returnerer type(\"Hei\")? ",
     "Er a = 5 + \"2\" en gyldig operasjon? ", 
@@ -25,6 +26,7 @@ questions = [
     "Er float(\"2.2\" en gyldig operasjon? "
 ]
 
+#Quiz svar
 answers = [
     "str",
     "nei",
@@ -33,6 +35,7 @@ answers = [
     "ja"
 ]
 
+#Tom liste til å registerer antall feil
 user_input = []
 
 #Prøven
