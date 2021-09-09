@@ -67,3 +67,11 @@ def convert_input(beboer):
 
 #Prosedyrekallet
 print_maltider(maltider)
+
+
+'''
+3.  Hvilken type samling (liste, mengde, ordbok) ville du brukt for å representere 
+    hver av de følgende eksemplene på data. Skriv litt om hvorfor.
+
+    a. Brukernavn på alle IN1000 studenter
+'''

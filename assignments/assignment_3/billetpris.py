@@ -26,6 +26,6 @@ for alder in kundealder:
 '''
 Slik jeg ser det så finner jeg ikke noe problem med prosedyren.
 Det eneste kan være at den ikke tar hensyn til negative og
-høye aldere. Eks. 150år er en gyldig input i prosedyren, noe 
-som ikke ville vært en reell input i virkeligheten.
+høye aldere. Eks. 150år eller -10år er en gyldig input i prosedyren,
+men ikke serlig reelt input i virkeligheten.
 '''
