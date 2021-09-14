@@ -74,4 +74,27 @@ print_maltider(maltider)
     hver av de følgende eksemplene på data. Skriv litt om hvorfor.
 
     a. Brukernavn på alle IN1000 studenter
+
+    Her spørs det litt hvordan det skal brukes. Dersom brukernavnet skal linkes mot
+    studentenes faktiske navn, eks Ola Nordman sitt brukernavn er olman, så ville
+    jeg brukt en ordbok. Dersom man kun vil ha alle brukernavn på UiO, og duplikater
+    blir fanget av en annen prosess, så ville jeg brukt mengder. Dersom man kun ønsker 
+    brukernavn, som ikke skal linkes mot selve studenten, så vil listen liste av brukernavn
+    fungere bra. 
+
+    b. Brukernavn og antall poeng på innlevering 3 for alle studentene på IN1000
+    
+    Her ville jeg brukt en ordbok, hvor keys/nøkkel i ordboken ville vært brukernavnet og
+    antall poeng ville vært value/verdi til aktuell nøkkel.
+
+    c. Alle vinnere i Lotte siste år (kun navn)
+
+    Dersom det ikke er viktig å vite om en person har vunnet flere ganger ville jeg 
+    brukt en mengde. Er antall ganger en person har vunnet viktig, ville jeg brukt lister.
+
+    d. All mat noen gjester i et selskap er allergisk mot(for å planlegge menyen)
+
+    Dersom det ikke er viktig å vite hvem som er allergisk mot hva, så ville jeg brukt mengder. 
+    Dersom det er viktig å vite hva hver enkelt person er allergisk mot, så ville jeg brukt ordbok.
+
 '''
