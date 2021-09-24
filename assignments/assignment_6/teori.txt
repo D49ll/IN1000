@@ -1,0 +1,15 @@
+1. Hva er innkapsling?
+Innkapsling av et objekt betyr at det er skjult for programmet hvordan
+objektet representerer og manipuleres sine data. Programmeren har kun tilgang
+til et gitt utvalg av metoder i objektet i klassen. Dette utvalget er grensesnittet
+til klassen. Grensesnittet blir bestemt av klassens arkitekt.
+
+2. Hva er grensesnittet til en klasse.
+Det er som nevnt ovenfor, det er utvalget av metoder som er tilgjenglig
+for programmerenen. Gensesnittet er kun metoder som er definert inne i Klassen.
+
+3. Hva er en instansmetode?
+Det er metoder (både funksjoner og prosedyrer) innkapslet i klassen. Klassen
+holder på instansverdiene hele tiden.
+
+En instansmetode er spesifikk for klassen den er definert i.
