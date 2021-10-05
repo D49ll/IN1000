@@ -1,10 +1,11 @@
 def minFunksjon():
-    for x in range(2):  #Kjøres 2 ganger
+    for x in range(2):  #Skal kjøre løkken 2 ganger
         c = 2           #c tilegnes verdien 2
         print(c)        #c printes til terminalen
         c += 1          #c økes med 1
         b = 10          #b tilegnes verdien 10
-        b += a          #Feil, a er ikke definert, dette vil terminere programmet
+        b += a          #Ugyldig kode, a er ikke definert, dette vil terminere programmet
+                        #Dermed stopper koden her, i første iterasjon av løkken
         print(b)
     return(b)
 
