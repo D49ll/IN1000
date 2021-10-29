@@ -1,96 +1,184 @@
-## Samlet offentlige grensnitt for klassene til oblig 8 i IN1000, Host 2021
-#
-# *Denne teksten fjernes og klassene fordeles paa filer foer implementasjon*
-# Grensesnittet er dokumentert i samme standard format som laereboken benytter.
-# Det finnes mange alternative formater og verktoey for dokumentasjon av
-# programmer, og en arbeidsplass eller kunde vil gjerne ha en standard man
-# maa tilpasse seg.
-# Merk at informasjonen som er oppgitt her tilsvarer klassenes *offentlige
-# grensesnitt* (public interface) - den informasjonen brukerne av klassen har
-# behov for. Du bestemmer *implementasjonen* - og vil kunne endre den i
-# ettertid uten at programmer som bruker klassene pavirkes.
-
-
-## Klasse for representasjon av regneklynge med racks og noder
-#  MERK to alternative konstruktorer, avhengig av om oppgave d) loeses
-class Regneklynge:
-	## Oppretter tom regneklynge for racks med oppgitt maxtall noder/ rack
-	# @param noderPerRack max antall noder som kan plasseres i et rack
-	def __init__(self, noderPerRack):
-		pass
-
-	## Alternativ konstruktor for de som loser oppgave d). Kan ellers ignoreres
-	## Leser data om regneklynge fra fil, bygger datastrukturen.
-	# @param filnavn filene der dataene for regneklyngen ligger
-#	def __init__(self, filnavn):
-#		pass
-
-	## Plasserer en node inn i et rack med ledig plass, eller i et nytt
-	# @param node referanse til noden som skal settes inn i datastrukturen
-	def settInnNode(self, node):
-		pass
-
-	## Beregner totalt antall prosessorer i hele regneklyngen
-	# @return totalt antall prosessorer
-	def antProsessorer(self):
-		pass
-
-	## Beregner antall noder i regneklyngen med minne over angitt grense
-	# @param paakrevdMinne hvor mye minne skal noder som telles med ha
-	# @return antall noder med tilstrekkelig minne
-	def noderMedNokMinne(self, paakrevdMinne):
-		pass
-
-	## Henter antall racks i regneklyngen
-	# @return antall racks
-	def antRacks(self):
-		pass
-
-## Klasse for representasjon av racks i en regneklynge.
-#
-class Rack:
-	## oppretter et rack der det senere kan plasseres noder
-	#
+class Datasenter:
+	'''
+	Klasse for representasjon av et datasenter
+	'''
 	def __init__(self):
+		self._regneklyger = dict()
+
+	def lesInnRegneklynge(self, filnavn):
+		'''
+		Leser inn data om en regneklynge fra fil og legger den til i ordboken
+			@param filnavn filene der dataene for regneklyngen ligger
+		'''
+		klyngeNavn,_ = filnavn.split('.')
+
+		f = open(filnavn).read()
+		linjer = f.splitlines()
+	
+		maxNoderPrRack = int(linjer[0])
+
+		for i in range(1,len(linjer)):
+			noder, minne, antPros = linjer[i].split(' ')
+			self._regneklyger[klyngeNavn] = Regneklynge(maxNoderPrRack)
+
+			for _ in noder:
+				self._regneklyger[klyngeNavn].settInnNode(Node(minne, antPros))
+
+
+
+
+	def skrivUtAlleRegneklynger(self): 
+		'''
+		Skriver ut informasjon om alle regneklyngene
+		'''
 		pass
 
-	## Plasserer en ny node inn i racket
-	#  @param node noden som skal plasseres inn
-	def settInn(self, node):
+	def skrivUtRegneklynge(self, navn):
+		'''
+		Skriver ut informasjon om en spesifikk regeklynge
+			@param navn navnet på regnekyngen
+		'''
 		pass
 
-	## Henter antall noder i racket
-	# @return antall noder
-	def getAntNoder(self):
-		pass
 
-	## Beregner sammenlagt antall prosessorer i nodene i et rack
-	# @return antall prosessorer
+class Regneklynge:
+	'''
+	Klasse for representasjon av regneklynge i et datasenter.
+	'''
+
+	def __init__(self, noderPerRack):
+		'''
+		Oppretter en regneklynge og setter maks antall det er plass til i et rack
+			@param noderPerRack max antall noder per rack
+		'''
+		self._noderPerRack = noderPerRack
+		self._racks = [[]]
+		self._rackIndeks = 0
+		self._nodeIndeks = 0
+
+
+	def settInnNode(self, node):
+		'''
+		Plasserer en node inn i et rack med ledig plass, eller i et nytt rack.
+			@param node referanse til noden som skal settes inn i datastrukturen		
+		'''
+
+		if self._nodeIndeks > self._noderPerRack:
+			self._rackIndeks += 1
+			self._nodeIndeks = 0
+
+		self._racks[self._rackIndeks].append(Rack)
+		self._nodeIndeks += 1
+
+
+
 	def antProsessorer(self):
+		'''
+		Beregner totalt antall prosessorer i hele regneklyngen
+			@return totalt antall prosessorer		
+		'''
 		pass
 
-	## Beregner antall noder i racket med minne over gitt grense
-	# @param paakrevdMinne antall GB minne som kreves
-	# @return antall noder med tilstrekkelig minne
+
 	def noderMedNokMinne(self, paakrevdMinne):
+		'''
+		Beregner antall noder i regneklyngen med minne over angitt grense
+			@param paakrevdMinne hvor mye minne skal noder som telles med ha
+			@return antall noder med tilstrekkelig minne		
+		'''
 		pass
 
-## Klasse for representasjon av noder i en regneklynge
-#
-class Node:
-	## Oppretter en node med gitt minne-storrelse og antall prosessorer
-	#  @param minne GB minne i den nye noden
-	#  @param antPros antall prosessorer i den nye noden
-	def __init__(self, minne, antPros):
+
+	def antRacks(self):
+		'''
+		Henter antall racks i regneklyngen
+			@return antall racks		
+		'''
 		pass
 
-	## Henter antall prosessorer i noden
-	#  @return antall prosessorer i noden
+
+
+class Rack:
+	'''
+	Klasse for representasjon av racks i en regneklynge.
+	'''
+
+	def __init__(self,navn):
+		'''
+		Oppretter et rack der det senere kan plasseres noder	
+		'''
+		self._navn = navn
+		self._noder = []
+
+
+	def settInn(self, node):
+		'''
+		Plasserer en ny node inn i racket
+			@param node noden som skal plasseres inn		
+		'''
+		self._noder.append(node)
+
+
+	def getAntNoder(self):
+		'''
+		Henter antall noder i racket
+			@return antall noder
+		'''
+		return len(self._noder)
+
+
 	def antProsessorer(self):
-		pass
+		'''
+		Beregner sammenlagt antall prosessorer i nodene i et rack
+			@return antall prosessorer		
+		'''
+		antPros = 0
+		for node in self._noder:
+			antPros += node.antProsessorer()
+		return antPros
 
-	## Sjekker om noden har tilstrekkelig minne for et program
-	#  @param paakrevdMinne GB minne som kreves for programmet
-	#  @return True hvis noden har minst saa mye minne
+	def noderMedNokMinne(self, paakrevdMinne):
+		'''
+		Beregner antall noder i racket med minne over gitt grense
+			@param paakrevdMinne antall GB minne som kreves
+			@return antall noder med tilstrekkelig minne
+		'''
+		antNoder = 0
+		for node in self._noder:
+			if node.nokMinne(paakrevdMinne):
+				antNoder += 1
+		return antNoder
+
+class Node:
+	'''
+	Klasse for representasjon av noder i en regneklynge
+	'''
+	def __init__(self, minne, antPros):
+		'''
+		Oppretter en node med gitt minne-storrelse og antall prosessorer
+			@param minne GB minne i den nye noden
+			@param antPros antall prosessorer i den nye noden
+		'''
+
+		self._minne = minne
+		self._antPros = antPros
+
+	def antProsessorer(self):
+		'''
+		Henter antall prosessorer i noden
+			@return antall prosessorer i noden
+		'''
+
+		return self._antPros
+
+	
 	def nokMinne(self, paakrevdMinne):
-		pass
+		'''
+		Sjekker om noden har tilstrekkelig minne for et program
+			@param paakrevdMinne GB minne som kreves for programmet
+			@return True hvis noden har minst så mye minne
+		'''
+
+		if paakrevdMinne <= self._minne:
+			return True
+		return False
