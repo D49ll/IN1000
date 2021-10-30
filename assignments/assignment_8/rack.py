@@ -1,3 +1,5 @@
+from node import Node
+
 class Rack:
 	'''
 	Klasse for representasjon av racks i en regneklynge.
@@ -16,7 +18,8 @@ class Rack:
 		Plasserer en ny node inn i racket
 			@param node noden som skal plasseres inn		
 		'''
-		self._noder.append(node)
+		minne, antPros = node
+		self._noder.append(Node(minne,antPros))
 
 
 	def getAntNoder(self):
@@ -35,6 +38,7 @@ class Rack:
 		antPros = 0
 		for node in self._noder:
 			antPros += node.antProsessorer()
+		
 		return antPros
 
 	def noderMedNokMinne(self, paakrevdMinne):
@@ -50,6 +54,10 @@ class Rack:
 		return antNoder
 
 	def _rackFult(self):
+		'''
+		Sjekker om rack er fult
+			@return True dersom rack er fult 
+		'''
 		if len(self._noder)==self._maxNoder:
 			return True
 		return False

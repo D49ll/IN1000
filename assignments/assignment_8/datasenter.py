@@ -1,5 +1,4 @@
 from regneklynge import Regneklynge
-from node import Node
 
 class Datasenter:
 	'''
@@ -13,23 +12,25 @@ class Datasenter:
 		Leser inn data om en regneklynge fra fil og legger den til i ordboken
 			@param filnavn filene der dataene for regneklyngen ligger
 		'''
+		#Klyngenavn tilsvarer navn på fil minus ".txt"
 		klyngeNavn,_ = filnavn.split('.')
 
+		#Leser fra fil og lagrer alle linjer i en nøstet liste
 		f = open(filnavn).read()
 		linjer = f.splitlines()
 	
+		#Første linje fra fil tilsvarer alltid max antall noder pr rack
 		maxNoderPrRack = int(linjer[0])
 
+		#Oppretter Regneklynge objekt med node begrensninger
+		self._regneklyger[klyngeNavn] = Regneklynge(maxNoderPrRack)
+
+		#Legger til noder i racks tilhørende regneklyngen
 		for i in range(1,len(linjer)):
 			noder, minne, antPros = linjer[i].split(' ')
-			noder = int(noder)
-			minne = int(minne)
-			antPros = int(antPros)
-			self._regneklyger[klyngeNavn] = Regneklynge(maxNoderPrRack)
-
-			for _ in range(noder):
-				self._regneklyger[klyngeNavn].settInnNode(Node(minne, antPros))
-
+			for i in range(int(noder)):
+				self._regneklyger[klyngeNavn].settInnNode((int(minne), int(antPros)))
+		
 	def skrivUtAlleRegneklynger(self): 
 		'''
 		Skriver ut informasjon om alle regneklyngene
@@ -42,13 +43,10 @@ class Datasenter:
 		'''
 		pass
 
-test = Datasenter()
+datasenter = Datasenter()
 
-test.lesInnRegneklynge('abel.txt')
+datasenter.lesInnRegneklynge('abel.txt')
 
-
-
-print(test)
 
 
 
