@@ -31,7 +31,7 @@ class Datasenter:
 		#Legger til noder i racks
 		for i in range(1,len(linjer)):
 			noder, minne, antPros = linjer[i].split(' ')
-			for i in range(int(noder)):
+			for _ in range(int(noder)):
 				self._klynger[navn].settInnNode((int(minne), int(antPros)))
 		
 	def skrivUtAlleRegneklynger(self): 

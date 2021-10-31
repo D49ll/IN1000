@@ -8,7 +8,7 @@ class Regneklynge:
             @param noderPerRack max antall noder per rack
         '''
         self._noderPerRack = noderPerRack
-        self._racks = [Rack(noderPerRack)]
+        self._racks = [Rack()]
         self._i = 0
 
     def settInnNode(self,node):
@@ -18,9 +18,9 @@ class Regneklynge:
             @param node referanse til noden som skal settes inn i datastrukturen
         '''
         #Oppretter et nytt rack dersom nåværende er fult
-        if self._racks[self._i]._rackFult():
+        if self._racks[self._i].getAntNoder()>=self._noderPerRack:
             self._i +=1
-            self._racks.append(Rack(self._noderPerRack))
+            self._racks.append(Rack())
 
         #Legger til node i rack. Merk node variabelen er en tuple
         self._racks[self._i].settInn(node)
