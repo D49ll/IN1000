@@ -4,8 +4,7 @@ def testRegneklynge():
     '''
     En prosedyre som tester Regneklynge klassen.
 
-    Forventet resultat i terminal,
-    med abel.txt som input er:
+    Forventet resultat med abel.txt som input er:
 
     Noder med minst 32 GB: 666
     Noder med minst 64 BG: 666
@@ -21,10 +20,10 @@ def testRegneklynge():
     linjer = f.splitlines()
 
     #Identifiserer max antall noder pr rack
-    maxNoderPrRack = int(linjer[0])
+    noderPerRack = int(linjer[0])
     
     #Oppretter regneklynge
-    klynge[navn] = Regneklynge(maxNoderPrRack)
+    klynge[navn] = Regneklynge(noderPerRack)
 
     #Setter inn noder i racks til regneklyngen
     for i in range(1,len(linjer)):

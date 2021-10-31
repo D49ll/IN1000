@@ -23,10 +23,10 @@ class Datasenter:
 		linjer = f.splitlines()
 	
 		#Første linje = max antall noder pr rack
-		maxNoderPrRack = int(linjer[0])
+		noderPerRack = int(linjer[0])
 
 		#Oppretter Regneklynge objekt med node begrensninger
-		self._klynger[navn] = Regneklynge(maxNoderPrRack)
+		self._klynger[navn] = Regneklynge(noderPerRack)
 
 		#Legger til noder i racks
 		for i in range(1,len(linjer)):
