@@ -37,7 +37,7 @@ def testRegneklynge():
     paakrevdMinne = [32,64,128]
     antNoder = []
    
-    #Sjekker minne i alle noder
+    #Sjekker minne i alle noder mot aktuelt minnekrav
     for minne in paakrevdMinne:
         antNoder.append(klynge[navn].noderMedNokMinne(minne))
     

@@ -5,12 +5,13 @@ class Rack:
 	Klasse for representasjon av racks i en regneklynge.
 	'''
 
-	def __init__(self, maxAntNoder):
+	def __init__(self, noderPerRack):
 		'''
-		Oppretter et rack der det senere kan plasseres noder	
+		Oppretter et rack der det senere kan plasseres noder
+			@param noderPerRack beskriver max antall noder i et rack
 		'''
 		self._noder = []
-		self._maxNoder = maxAntNoder
+		self._noderPerRack = noderPerRack
 
 
 	def settInn(self, node):
@@ -58,6 +59,6 @@ class Rack:
 		Sjekker om rack er fult
 			@return True dersom rack er fult 
 		'''
-		if len(self._noder)==self._maxNoder:
+		if len(self._noder)>=self._noderPerRack:
 			return True
 		return False

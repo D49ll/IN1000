@@ -3,7 +3,9 @@ from rack import Rack
 class Regneklynge:
     def __init__(self, noderPerRack):
         '''
-        Oppretter et Rack object med Node begrensninger som legges i en liste.
+        Oppretter et Rack object med Node begrensninger.
+        Rack objektet legges til i en rackliste
+            @param noderPerRack max antall noder per rack
         '''
         self._noderPerRack = noderPerRack
         self._racks = [Rack(noderPerRack)]
@@ -12,7 +14,7 @@ class Regneklynge:
     def settInnNode(self,node):
         '''
         Plasserer en node inn i et rack med ledig plass.
-        Oppretter en ny rack dersom nåværende rack er fult
+        Oppretter et nytt rack dersom nåværende rack er fult
             @param node referanse til noden som skal settes inn i datastrukturen
         '''
         #Oppretter et nytt rack dersom nåværende er fult
@@ -20,7 +22,7 @@ class Regneklynge:
             self._i +=1
             self._racks.append(Rack(self._noderPerRack))
 
-        #Legger til node i rack. Mer node variabelen er en tuple
+        #Legger til node i rack. Merk node variabelen er en tuple
         self._racks[self._i].settInn(node)
 
 
