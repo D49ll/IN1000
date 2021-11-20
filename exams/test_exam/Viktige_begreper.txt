@@ -1,0 +1,6 @@
+Uttrykk:
+- Er noe som evalueres til en verdi/string/boolsk
+- Et uttrykk er noe som evaluerer til en verdi
+- Vi kan bruke et uttrykk alle steder hvor vi ville brukt en variabel eller konstant.
+
+- Et uttrykk er IKKE en tilordning. navn = 'Jonas' er en tilordning, ikke et utrykk. 'Jonas' er et uttrykk.
